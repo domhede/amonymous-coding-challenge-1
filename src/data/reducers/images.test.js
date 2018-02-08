@@ -2,10 +2,14 @@ import reducer from './images';
 import * as types from '../../constants/ActionTypes';
 import testData from '../testData.json';
 
-const afterFetch = {
+const afterFetchState = {
   all: testData.data,
   filtered: testData.data
 };
+const afterFilterState = {
+  all: testData.data,
+  filtered: [testData.data[1]]
+}
 
 describe('properties reducer', () => {
   it('should return the initial state', () => {
@@ -23,7 +27,17 @@ describe('properties reducer', () => {
         payload: testData
       })
     ).toEqual(
-      afterFetch
+      afterFetchState
+    )
+  });
+  it('should handle FILTER_IMAGES', () => {
+    expect(
+      reducer(afterFetchState, {
+        type: types.FILTER_IMAGES,
+        payload: { searchTerm: 'barack'}
+      })
+    ).toEqual(
+      afterFilterState
     )
   });
 });

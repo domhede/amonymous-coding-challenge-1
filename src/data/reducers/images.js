@@ -1,4 +1,5 @@
-import { FETCH_IMAGES } from 'constants/actionTypes'
+import { FETCH_IMAGES, FILTER_IMAGES } from 'constants/actionTypes'
+import { filterByTitle } from '../../helpers/filters';
 
 const INITIAL_STATE = {
   all: [],
@@ -12,6 +13,14 @@ export default function properties(state = INITIAL_STATE, action) {
         ...state,
         all: action.payload.data,
         filtered: action.payload.data
+      }
+    case FILTER_IMAGES:
+      const { searchTerm } = action.payload;
+      const images = state.all;
+      const filtered = filterByTitle(images, searchTerm);
+      return {
+        ...state,
+        filtered
       }
     default:
       return state
