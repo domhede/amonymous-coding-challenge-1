@@ -1,5 +1,14 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-const App = () => <div>App</div>;
+import { fetchImages } from '../../data/actions/imageActions';
 
-export default App;
+import App from './component.js';
+
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    fetchImages
+  }, dispatch)
+);
+
+export default connect(null, mapDispatchToProps)(App);
