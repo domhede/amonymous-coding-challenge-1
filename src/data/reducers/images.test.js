@@ -20,10 +20,10 @@ describe('properties reducer', () => {
       }
     )
   });
-  it('should handle FETCH_IMAGES', () => {
+  it('should handle FETCH_IMAGES_SUCCESS', () => {
     expect(
       reducer([], {
-        type: types.FETCH_IMAGES,
+        type: types.FETCH_IMAGES_SUCCESS,
         payload: testData
       })
     ).toEqual(

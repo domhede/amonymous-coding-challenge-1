@@ -1,4 +1,4 @@
-import { FETCH_IMAGES, FILTER_IMAGES } from 'constants/actionTypes'
+import { FETCH_IMAGES_START, FETCH_IMAGES_SUCCESS, FILTER_IMAGES } from 'constants/actionTypes'
 import { filterByTitle } from '../../helpers/filters';
 
 const INITIAL_STATE = {
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 export default function properties(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case FETCH_IMAGES:
+    case FETCH_IMAGES_SUCCESS:
       return {
         ...state,
         all: action.payload.data,
