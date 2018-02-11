@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import ImageGrid from '../ImageGrid';
 
 class App extends Component {
   componentWillMount() {
@@ -7,9 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>
-          App
-        </div>
+        <ImageGrid />
       </div>
     );
   }

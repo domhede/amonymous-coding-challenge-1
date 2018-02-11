@@ -16,8 +16,8 @@ const fetchImagesSuccess = images => ({
 
 export const fetchImages = () => (dispatch) => {
   dispatch(fetchImagesStart());
-  const limit = 3;
-  const url = `${BASE_URL}v1/gifs/search?q=trending&api_key=${API_KEY}&limit=${limit}`;
+  const limit = 20;
+  const url = `${BASE_URL}v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g`;
 
   return axios({
     url,
