@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ImageGrid from '../ImageGrid';
-import Button from 'components/Common/Button';
+import Search from 'components/Common/Search';
+
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-`;
-const MoreButton = styled(Button)`
-
+  font-family: monospace;
+  margin: 0px 16px;
 `;
 
 class App extends Component {
@@ -17,12 +17,11 @@ class App extends Component {
     this.props.fetchImages();
   }
   render() {
-    const { offset, fetchMoreImages } = this.props;
-
+    const {filterImages, clearFilter } = this.props;
     return (
       <Wrapper>
+        <Search clearFilter={clearFilter} filterImages={filterImages} />
         <ImageGrid />
-        <MoreButton onClick={() => fetchMoreImages(offset + 20)}>Load more</MoreButton>
       </Wrapper>
     );
   }
