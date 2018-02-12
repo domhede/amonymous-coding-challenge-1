@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component renders correctly 1`] = `
+<div
+  className="sc-bwzfXH jBeist"
+>
+  <input
+    className="sc-htpNat gsizbl"
+    onChange={[Function]}
+    placeholder="Search by title"
+    value=""
+  />
+  <div
+    className="sc-bdVaJa iVrSmt"
+    onClick={[Function]}
+  >
+    Filter
+  </div>
+</div>
+`;

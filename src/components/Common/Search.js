@@ -17,7 +17,8 @@ const Input = styled.input`
   border-radius: 4px;
   font-size: 14px;
 `;
-const Close = styled.div`
+Input.displayName = 'Input';
+const Clear = styled.div`
   height: 20px;
   width: 20px;
   padding: 10px;
@@ -30,6 +31,8 @@ const Close = styled.div`
     cursor: pointer;
   }
 `;
+Clear.displayName = 'Clear';
+
 const Cross = styled.path`
   stroke: black;
   fill: transparent;
@@ -63,11 +66,11 @@ class Search extends Component {
       <Wrapper>
         <Input placeholder='Search by title' onChange={this.handleChange} value={searchTerm} />
         {searchTerm !== '' &&
-          <Close onClick={() => this.clear()}>
+          <Clear onClick={() => this.clear()}>
             <svg>
               <Cross d="M 5,5 L 15,15 M 15,5 L 5,15"></Cross>
             </svg>
-          </Close>
+          </Clear>
         }
         <Button onClick={() => filterImages(searchTerm)}>Filter</Button>
       </Wrapper>
