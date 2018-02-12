@@ -16,7 +16,8 @@ describe('properties reducer', () => {
     expect(reducer(undefined, {})).toEqual(
       {
         all: [],
-        filtered: []
+        filtered: [],
+        offset: 0
       }
     )
   });

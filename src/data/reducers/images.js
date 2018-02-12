@@ -1,9 +1,19 @@
-import { FETCH_IMAGES_START, FETCH_IMAGES_SUCCESS, FILTER_IMAGES } from 'constants/actionTypes'
+import update from 'immutability-helper';
+
+import {
+  FETCH_IMAGES_START,
+  FETCH_IMAGES_SUCCESS,
+  FILTER_IMAGES,
+  FETCH_MORE_IMAGES_START,
+  FETCH_MORE_IMAGES_SUCCESS
+} from 'constants/actionTypes';
+
 import { filterByTitle } from '../../helpers/filters';
 
 const INITIAL_STATE = {
   all: [],
-  filtered: []
+  filtered: [],
+  offset: 0
 };
 
 export default function properties(state = INITIAL_STATE, action) {
@@ -13,6 +23,16 @@ export default function properties(state = INITIAL_STATE, action) {
         ...state,
         all: action.payload.data,
         filtered: action.payload.data
+      }
+    case FETCH_MORE_IMAGES_SUCCESS:
+      const fetchedImages = action.payload.data;
+      const allImages = update(state.all, {$push: fetchedImages});
+
+      return {
+        ...state,
+        all: allImages,
+        filtered: allImages,
+        offset: state.offset + 20
       }
     case FILTER_IMAGES:
       const { searchTerm } = action.payload;

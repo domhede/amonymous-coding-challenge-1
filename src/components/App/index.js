@@ -1,14 +1,19 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchImages } from '../../data/actions/imageActions';
+import { fetchImages, fetchMoreImages } from '../../data/actions/imageActions';
 
 import App from './component.js';
 
+const mapStateToProps = ({images}) => ({
+  offset: images.offset
+});
+
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    fetchImages
+    fetchImages,
+    fetchMoreImages
   }, dispatch)
 );
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

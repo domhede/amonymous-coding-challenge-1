@@ -5,20 +5,21 @@ import { media } from 'helpers/style-utils';
 import EmbedGif from './EmbedGif';
 
 const Grid = styled.div`
- display: grid;
- grid-template-columns: auto auto;
- grid-column-gap: 30px;
- grid-row-gap: 30px;
- ${media.mobile`
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  ${media.mobile`
     grid-column-gap: 10px;
     grid-row-gap: 10px;
- `}
- ${media.tablet`
+  `}
+  ${media.tablet`
     grid-template-columns: auto auto auto;
- `}
- ${media.desktop`
+  `}
+  ${media.desktop`
     grid-template-columns: auto auto auto auto;
- `}
+  `}
 `;
 
 const renderImages = images => {
