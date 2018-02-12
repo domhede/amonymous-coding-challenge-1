@@ -60,13 +60,6 @@ class EmbedGif extends Component {
         </Gif>
       </Wrapper>
     )
-
-    return (
-      <Wrapper>
-
-    </Wrapper>
-
-    );
   }
 }
 

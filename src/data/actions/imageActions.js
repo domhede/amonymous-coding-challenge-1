@@ -11,6 +11,7 @@ import {
 
 const BASE_URL = 'http://api.giphy.com/';
 const API_KEY = 'FwoVvfU4Yr5gqvctz6qhp7StSfWs6guc';
+const limit = 20;
 
 const fetchImagesStart = () => ({
   type: FETCH_IMAGES_START,
@@ -32,7 +33,7 @@ const fetchMoreImagesSuccess = images => ({
 
 export const fetchImages = () => (dispatch) => {
   dispatch(fetchImagesStart());
-  const limit = 4;
+
   const url = `${BASE_URL}v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g`;
 
   return axios({
@@ -47,9 +48,8 @@ export const fetchImages = () => (dispatch) => {
       throw(error);
     });
 };
-export const fetchMoreImages = (offset) => (dispatch) => {
+export const fetchMoreImages = offset => (dispatch) => {
   dispatch(fetchMoreImagesStart());
-  const limit = 4;
   const url = `${BASE_URL}v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g&offset=${offset}`;
 
   return axios({
