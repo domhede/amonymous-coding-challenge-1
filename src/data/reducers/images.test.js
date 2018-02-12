@@ -41,4 +41,13 @@ describe('properties reducer', () => {
       afterFilterState
     )
   });
+  it('should handle CLEAR_FILTER', () => {
+    expect(
+      reducer(afterFilterState, {
+        type: types.CLEAR_FILTER
+      })
+    ).toEqual(
+      afterFetchState
+    )
+  })
 });

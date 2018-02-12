@@ -5,7 +5,8 @@ import {
   FETCH_IMAGES_SUCCESS,
   FILTER_IMAGES,
   FETCH_MORE_IMAGES_START,
-  FETCH_MORE_IMAGES_SUCCESS
+  FETCH_MORE_IMAGES_SUCCESS,
+  CLEAR_FILTER
 } from 'constants/actionTypes';
 
 const BASE_URL = 'http://api.giphy.com/';
@@ -31,7 +32,7 @@ const fetchMoreImagesSuccess = images => ({
 
 export const fetchImages = () => (dispatch) => {
   dispatch(fetchImagesStart());
-  const limit = 20;
+  const limit = 4;
   const url = `${BASE_URL}v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g`;
 
   return axios({
@@ -48,7 +49,7 @@ export const fetchImages = () => (dispatch) => {
 };
 export const fetchMoreImages = (offset) => (dispatch) => {
   dispatch(fetchMoreImagesStart());
-  const limit = 20;
+  const limit = 4;
   const url = `${BASE_URL}v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=g&offset=${offset}`;
 
   return axios({
@@ -65,7 +66,12 @@ export const fetchMoreImages = (offset) => (dispatch) => {
     });
 
 }
+
 export const filterImages = searchTerm => ({
   type: FILTER_IMAGES,
   payload: {searchTerm}
+});
+
+export const clearFilter = () => ({
+  type: CLEAR_FILTER
 });

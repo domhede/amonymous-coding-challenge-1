@@ -4,6 +4,7 @@ import {
   FETCH_IMAGES_START,
   FETCH_IMAGES_SUCCESS,
   FILTER_IMAGES,
+  CLEAR_FILTER,
   FETCH_MORE_IMAGES_START,
   FETCH_MORE_IMAGES_SUCCESS
 } from 'constants/actionTypes';
@@ -41,6 +42,11 @@ export default function properties(state = INITIAL_STATE, action) {
       return {
         ...state,
         filtered
+      }
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: state.all
       }
     default:
       return state

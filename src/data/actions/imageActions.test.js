@@ -39,4 +39,10 @@ describe('image actions', () => {
     }
     expect(actions.filterImages(searchTerm)).toEqual(expectedAction)
   })
+  it('should create an action to clear the filter', () => {
+    const expectedAction = {
+      type: types.CLEAR_FILTER
+    };
+    expect(actions.clearFilter()).toEqual(expectedAction)
+  })
 });
