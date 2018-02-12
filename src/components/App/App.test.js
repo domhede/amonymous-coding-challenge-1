@@ -16,11 +16,16 @@ const store = mockStore(initialState);
 
 describe('App component', () => {
   let mockFetchAll = jest.fn();
-  let mockFetchSaved = jest.fn();
 
   it('renders without crashing', () => {
     shallow(
       <App fetchImages={mockFetchAll} />
     );
+  });
+  it('should call fetchImages when mounted', () => {
+    const wrapper = shallow(
+      <App fetchImages={mockFetchAll} />
+    );
+    expect(mockFetchAll).toHaveBeenCalled();
   });
 });
