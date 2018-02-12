@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from 'helpers/style-utils';
 import { ClipLoader } from 'react-spinners';
 
 const Wrapper = styled.div`

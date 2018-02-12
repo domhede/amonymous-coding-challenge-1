@@ -1,11 +1,9 @@
 import update from 'immutability-helper';
 
 import {
-  FETCH_IMAGES_START,
   FETCH_IMAGES_SUCCESS,
   FILTER_IMAGES,
   CLEAR_FILTER,
-  FETCH_MORE_IMAGES_START,
   FETCH_MORE_IMAGES_SUCCESS
 } from 'constants/actionTypes';
 
