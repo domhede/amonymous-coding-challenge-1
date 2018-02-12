@@ -1,4 +1,4 @@
-# REA UI Developer Test
+# Anonymous Coding Challenge 1 - React/Redux
 
 This project displays a list of trending gifs from the giphy api.  The user is able to filter by title.
 
