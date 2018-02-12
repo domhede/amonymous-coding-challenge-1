@@ -16,7 +16,7 @@ const Gif = styled.div`
   height:0;
   padding-bottom: 56%;
   position:relative;
-  display: ${props => props.loading ? 'none' : 'inherit'}
+  display: ${props => props.loading ? 'none' : 'inherit'};
 `;
 const Iframe = styled.iframe`
   position: absolute;
